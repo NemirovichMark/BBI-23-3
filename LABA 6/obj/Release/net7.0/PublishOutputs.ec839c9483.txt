@@ -1,0 +1,5 @@
+/Users/arina/Projects/LABA 6/LABA 6/bin/Release/net7.0/publish/LABA 6
+/Users/arina/Projects/LABA 6/LABA 6/bin/Release/net7.0/publish/LABA 6.dll
+/Users/arina/Projects/LABA 6/LABA 6/bin/Release/net7.0/publish/LABA 6.deps.json
+/Users/arina/Projects/LABA 6/LABA 6/bin/Release/net7.0/publish/LABA 6.runtimeconfig.json
+/Users/arina/Projects/LABA 6/LABA 6/bin/Release/net7.0/publish/LABA 6.pdb
