@@ -4,12 +4,18 @@
     {
         private string _name; // string.Empty
         private int _age; // 0
+        public static int Counter { get; private set; }
         public string Name => _name; // read-only property
         public int Age => _age; // read-only property
+        static Animal()
+        {
+            Counter = 10;
+        }
         public Animal(string name, int age)
         {
             _name = name;
             _age = age;
+            Counter++;
         }
         public void Print()
         {
@@ -20,7 +26,6 @@
     {
         static void Main(string[] args)
         {
-
             // Animal[] animals = new Animals[0]; // null
 
             Animal cat = new Animal("Cat", 5);
@@ -56,7 +61,8 @@
             youngest.Print();
             eldest.Print();
 
-
+            // Animal.Counter = 0;  - незя так!!!
+            Console.WriteLine(Animal.Counter);
         }
         static void Sort(Animal[] animals)
         {
