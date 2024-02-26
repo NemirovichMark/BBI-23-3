@@ -8,6 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = lab_6
-build_property.ProjectDir = C:\Users\user\Source\Repos\BBI-23-3_0\lab_6\
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.ProjectDir = C:\Users\misha\Source\Repos\BBI-23-3\lab_6\
