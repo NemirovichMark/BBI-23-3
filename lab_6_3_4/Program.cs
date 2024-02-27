@@ -1,4 +1,6 @@
-﻿struct SkiTournoment
+﻿using System.Globalization;
+
+struct SkiTournoment
 {
     private string _name;
     private string _group;
@@ -62,13 +64,33 @@ internal class Program
     static SkiTournoment[] Merge(SkiTournoment[] a, SkiTournoment[] b) 
     {
         SkiTournoment[] c= new SkiTournoment[a.Length+b.Length];
-        for (int i = 0;i < a.Length; i++)
+        int i=0, j=0, k=0;
+        while (i<a.Length && j<b.Length)
         {
-            c[i] = a[i];
+            if (a[i].Score < b[j].Score) 
+            {
+                c[k] = a[i];
+                k++;
+                i++;
+            }
+            else
+            {
+                c[k] = b[j];
+                k++;
+                j++;
+            }
         }
-        for (int i = 0; i < b.Length; i++)
+        while (i < a.Length)
         {
-            c[i+a.Length] = b[i];
+            c[k] = a[i];
+            k++;
+            i++;
+        }
+        while(j < b.Length)
+        {
+            c[k] = b[j];
+            k++;
+            j++;
         }
         return c;
     }
