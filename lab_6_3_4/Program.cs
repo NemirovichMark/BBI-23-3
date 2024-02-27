@@ -1,91 +1,78 @@
-﻿using System.Data;
-using System.Security.Cryptography.X509Certificates;
-
-struct SkiTournoment
+﻿struct SkiTournoment
 {
     private string _name;
-    private int[] _scoreList;
-    public SkiTournoment(string name, int gr1score, int gr2score)
+    private string _group;
+    private int _score;
+    public SkiTournoment(string name, int score, string group)
     {
         _name = name;
-        _scoreList = new int[2] { gr1score, gr2score };
+        _score = score;
+        _group = group;
     }
-    public int[] Score => _scoreList;
+    public int Score => _score;
+    public string Group => _group;
     public void Print()
     {
         // name не больше 5 символов иначе вывод ломаесться
-        Console.WriteLine("{0,-5} | {1,-3} | {2,-3} ", _name, _scoreList[0], _scoreList[1] );
+        Console.WriteLine("{0,-7} | {1,-3} | {2,-3} ", _name, _group, _score);
     }
 }
 internal class Program
 {
     static void Main(string[] args)
     {
-        SkiTournoment[] participants = new SkiTournoment[5]
+        SkiTournoment[] gr1participant = new SkiTournoment[5]
         {
-            new SkiTournoment("Lenon", 20,21),
-            new SkiTournoment("Leontev", 19,18),
-            new SkiTournoment("Kirilov", 23,18),
-            new SkiTournoment("Korotki", 17,19),
-            new SkiTournoment("Bolshoi", 24,10)
+            new SkiTournoment("Lenon", 20,"gr1"),
+            new SkiTournoment("Leontev", 19,"gr1"),
+            new SkiTournoment("Kirilov", 23,"gr1"),
+            new SkiTournoment("Korotki", 17,"gr1"),
+            new SkiTournoment("Bolshoi", 24,"gr1")
         };
-        Sort(participants,0);
-        for (int i = 0; i < participants.Length; i++)
+        SkiTournoment[] gr2participant = new SkiTournoment[5]
         {
-            participants[i].Print();
-        }
-        Sort(participants,1);
-        Console.WriteLine();
-        for (int i = 0; i < participants.Length; i++) 
+            new SkiTournoment("Pretki", 20,"gr2"),
+            new SkiTournoment("Portik", 19,"gr2"),
+            new SkiTournoment("Gortik", 20,"gr2"),
+            new SkiTournoment("Sortik", 23,"gr2"),
+            new SkiTournoment("Mortkii", 18,"gr2")
+        };
+        
+
+        Sort(gr1participant);
+        for (int i = 0; i < gr1participant.Length; i++)
         {
-            participants[i].Print();
+            gr1participant[i].Print();
         }
         Console.WriteLine();
-        SortFull(participants);
+        Sort(gr2participant);
+        for (int i = 0; i < gr2participant.Length; i++)
+        {
+            gr2participant[i].Print();
+        }
+        Console.WriteLine();
+        SkiTournoment[] participants = Merge(gr1participant,gr2participant);
+
         for (int i = 0; i < participants.Length; i++)
         {
             participants[i].Print();
         }
         Console.ReadKey();
     }
-    static void SortFull(SkiTournoment[] participants)
+    static SkiTournoment[] Merge(SkiTournoment[] a, SkiTournoment[] b) 
     {
-        int res1;
-        int res2;
-        for (int i = 1; i < participants.Length; i++)
+        SkiTournoment[] c= new SkiTournoment[a.Length+b.Length];
+        for (int i = 0;i < a.Length; i++)
         {
-            for (int j = 1; j < participants.Length; j++)
-            {
-  
-
-                if (participants[j].Score[0] > participants[j].Score[1])
-                {
-                    res1 = participants[j].Score[1];
-                }
-                else
-                { 
-                    res1= participants[j].Score[0];
-                }
-
-                if (participants[j-1].Score[0] > participants[j-1].Score[1])
-                {
-                    res2 = participants[j-1].Score[1];
-                }
-                else
-                {
-                    res2 = participants[j-1].Score[0];
-                }
-                if (res1 < res2)
-                {
-                    SkiTournoment temp = participants[j];
-                    participants[j] = participants[j - 1];
-                    participants[j - 1] = temp;
-                }
-
-            }
+            c[i] = a[i];
         }
+        for (int i = 0; i < b.Length; i++)
+        {
+            c[i+a.Length] = b[i];
+        }
+        return c;
     }
-    static void Sort(SkiTournoment[] participants, int a)
+    static void Sort(SkiTournoment[] participants)
     {
         int res1;
         int res2;
@@ -93,9 +80,8 @@ internal class Program
         {
             for (int j = 1; j < participants.Length; j++)
             {
-                res1 = participants[j].Score[a];
-                res2 = participants[j-1].Score[a];
-
+                res1 = participants[j].Score;
+                res2 = participants[j - 1].Score;
                 if (res1 < res2)
                 {
                     SkiTournoment temp = participants[j];
