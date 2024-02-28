@@ -1,0 +1,77 @@
+﻿using System;
+
+struct Student
+{
+    private string name1;
+    private int mathGrade1;
+    private int physicsGrade1;
+    private int russianGrade1;
+
+    public string Name => name1;
+    public int MathGrade => mathGrade1;
+    public int PhysicsGrade => physicsGrade1;
+    public int RussianGrade => russianGrade1;
+
+    public Student(string name, int mathGrade, int physicsGrade, int russianGrade)
+    {
+        name1 = name;
+        mathGrade1 = mathGrade;
+        physicsGrade1 = physicsGrade;
+        russianGrade1 = russianGrade;
+    }
+
+    public double AverageGrade()
+    {
+        return (mathGrade1 + physicsGrade1 + russianGrade1) / 3.0;
+    }
+
+    public void Print()
+    {
+        Console.WriteLine("Student {0:d} \t Average Grade: {1:f2}", name1, AverageGrade());
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Student[] stu = new Student[8];
+        stu[0] = new Student("Alice", 5, 4, 5);
+        stu[1] = new Student("Bob", 4, 3, 4);
+        stu[2] = new Student("Karl", 3, 5, 4);
+        stu[3] = new Student("David", 5, 3, 4);
+        stu[4] = new Student("Eve", 4, 5, 3);
+        stu[5] = new Student("Emma", 5, 5, 5);
+        stu[6] = new Student("Alex", 2, 3, 5);
+        stu[7] = new Student("Lili", 3, 2, 4);
+
+        for (int i = 0; i < stu.Length - 1; i++)
+        {
+            double maxAvgGrade = stu[i].AverageGrade();
+            int maxIndex = i;
+            for (int j = i + 1; j < stu.Length; j++)
+            {
+                if (stu[j].AverageGrade() > maxAvgGrade &&
+                    stu[j].MathGrade != 2 && stu[j].PhysicsGrade != 2 && stu[j].RussianGrade != 2)
+                {
+                    maxAvgGrade = stu[j].AverageGrade();
+                    maxIndex = j;
+                }
+            }
+            Student temp = stu[maxIndex];
+            stu[maxIndex] = stu[i];
+            stu[i] = temp;
+        }
+
+        Console.WriteLine("Список студентов успешно сдавших экзамены:");
+        for (int i = 0; i < stu.Length; i++)
+        {
+            if (stu[i].MathGrade != 2 && stu[i].PhysicsGrade != 2 && stu[i].RussianGrade != 2)
+            {
+                stu[i].Print();
+            }
+        }
+
+        Console.ReadKey();
+    }
+}
