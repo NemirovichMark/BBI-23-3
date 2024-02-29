@@ -1,0 +1,50 @@
+   using System;
+using System.Collections.Generic;
+
+struct Student
+{
+    public string Name;
+    public int Exam1;
+    public int Exam2;
+    public int Exam3;
+    public int Exam4;
+    public double AverageGrade;
+}
+
+class Program
+{
+    static void Main()
+    {
+        Student[] students = new Student[5]
+        {
+            new Student { Name = "Павел", Exam1 = 5, Exam2 = 4, Exam3 = 3, Exam4 = 5 },
+            new Student { Name = "Арсений", Exam1 = 4, Exam2 = 5, Exam3 = 4, Exam4 = 4 },
+            new Student { Name = "Артур", Exam1 = 3, Exam2 = 3, Exam3 = 4, Exam4 = 5 },
+            new Student { Name = "Игорь", Exam1 = 5, Exam2 = 5, Exam3 = 5, Exam4 = 5 },
+            new Student { Name = "Александр", Exam1 = 4, Exam2 = 5, Exam3 = 5, Exam4 = 4 }
+        };
+
+        List<Student> highScoringStudents = new List<Student>();
+
+        foreach (var student in students)
+        {
+            student.AverageGrade = (student.Exam1 + student.Exam2 + student.Exam3 + student.Exam4) / 4.0;
+            if (student.AverageGrade >= 4)
+            {
+                highScoringStudents.Add(student);
+            }
+        }
+
+        highScoringStudents.Sort((s1, s2) => s2.AverageGrade.CompareTo(s1.AverageGrade));
+
+        Console.WriteLine("Студенты с средним баллом 4 и выше:");
+        Console.WriteLine("------------------------------------------------");
+        Console.WriteLine("|    Имя    | Экзамен 1 | Экзамен 2 | Экзамен 3 | Экзамен 4 | Ср. Балл |");
+        Console.WriteLine("------------------------------------------------");
+        foreach (var student in highScoringStudents)
+        {
+            Console.WriteLine($"| {student.Name,-9} | {student.Exam1,9} | {student.Exam2,9} | {student.Exam3,9} | {student.Exam4,9} | {student.AverageGrade,8:f2} |");
+        }
+        Console.WriteLine("------------------------------------------------");
+    }
+}

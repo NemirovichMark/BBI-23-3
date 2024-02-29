@@ -1,0 +1,29 @@
+   public int MissedClasses => missedClasses1;
+    public Student(string name, int grade, int missedClasses)    {
+        name1 = name;        grade1 = grade;
+        missedClasses1 = missedClasses;    }
+    public void Print()
+    {        Console.WriteLine("Имя {0} \t {1} балл \t кол-во пропусков {2}", name1, grade1, missedClasses1);
+    }}
+class Program{
+    static void Main(string[] args)
+    {        Student[] stu = new Student[8];
+        stu[0] = new Student("Лиза", 2, 3);        stu[1] = new Student("Артем", 4, 5);
+        stu[2] = new Student("Саша", 2, 7);        stu[3] = new Student("Катя", 3, 1);
+        stu[4] = new Student("Матвей", 2, 6);        stu[5] = new Student("Егор", 4, 2);
+        stu[6] = new Student("Полина", 3, 4);        stu[7] = new Student("Лера", 2, 5);
+        for (int i = 0; i < stu.Length - 1; i++)
+        {            int maxMissed = stu[i].MissedClasses;
+            int maxIndex = i;            for (int j = i + 1; j < stu.Length; j++)
+            {                if (stu[j].MissedClasses > maxMissed && stu[j].Grade == 2)
+                {                    maxMissed = stu[j].MissedClasses;
+                    maxIndex = j;                }
+            }            Student temp = stu[maxIndex];
+            stu[maxIndex] = stu[i];            stu[i] = temp;
+        }
+        Console.WriteLine("Список неуспевающих студентов:");        for (int i = 0; i < stu.Length; i++)
+        {            if (stu[i].Grade == 2)
+            {                stu[i].Print();
+            }        }
+        Console.ReadKey();
+    }}
