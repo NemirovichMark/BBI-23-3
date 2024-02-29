@@ -1,0 +1,59 @@
+
+// 2 уровень (задача 3)
+
+class Program
+{
+    struct JumpData
+    {
+        private string surname;
+        private double[] jumps;
+        public double result { get; set; }
+
+        public JumpData(string surname)
+        {
+            this.surname = surname;
+            jumps = new double[3];
+            Random rand = new Random();
+            result = 100;
+            for (int i = 0; i < 3; i++)
+            {
+                jumps[i] = rand.NextDouble() * 20 + 50;
+                result = Math.Min(result, jumps[i]);
+            }
+        }
+
+        public void show()
+        {
+            Console.WriteLine("{0, -10}: {1:f3} | {2:f3} | {3:f3} | BEST: {4:f3}", surname, jumps[0], jumps[1], jumps[2], result);
+        }
+
+    }
+    static void Main()
+    {
+        int N = 10;
+        Random rand = new Random();
+        JumpData[] data = new JumpData[N];
+        string[] surnames =
+        {
+            "Trushina",
+            "Agieva",
+            "Klochay",
+            "Bugaeva",
+            "Kamishova",
+            "Romanova",
+            "Ivanova",
+            "Smirnova",
+        };
+        for (int i = 0; i < N; i++)
+        {
+            int surname = rand.Next(surnames.Length);
+            data[i] = new JumpData(surnames[surname]);
+        }
+        var query = data.OrderBy(x => x.result);
+        foreach (JumpData item in query)
+        {
+            item.show();
+        }
+    }
+}
+  
