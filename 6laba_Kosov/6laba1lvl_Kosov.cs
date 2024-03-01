@@ -1,14 +1,16 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 public class Jumper
 {
-    public string Name { get; set; }
-    public string Club { get; set; }
-    public int FirstTry { get; set; }
-    public int SecondTry { get; set; }
+    public string Name { get; private set; }
+    public string Club { get; private set; }
 
+    public int FirstTry { get; private set; }
+    public int SecondTry { get; private set; }
+
+    // Конструктор с параметрами для инициализации свойств
     public Jumper(string name, string club, int firstTry, int secondTry)
     {
         Name = name;
@@ -16,11 +18,26 @@ public class Jumper
         FirstTry = firstTry;
         SecondTry = secondTry;
     }
+
+
+    public void DisplayInfo()
+    {
+        Console.WriteLine("{0,-20} {1,-20} {2,-20} {3,-20} {4,-20}", Place, this.Name, this.Club, this.FirstTry, this.SecondTry);
+    }
+
+
+    public int TotalScore
+    {
+        get { return FirstTry + SecondTry; }
+    }
+
+
+    public int Place { get; internal set; }
 }
 
-public class Program
+class Program
 {
-    public static void Main()
+    static void Main()
     {
         List<Jumper> jumpers = new List<Jumper>
         {
@@ -28,14 +45,22 @@ public class Program
             new Jumper("Walter White", "Hermanos", 15, 10)
         };
 
-        var orderedJumpers = jumpers.OrderByDescending(j => j.FirstTry + j.SecondTry);
+        var orderedJumpers = jumpers.OrderByDescending(j => j.TotalScore).ToList();
 
-        Console.WriteLine("{0,-20} {1,-20} {2,-20} {3,-20} {4,-20}", "Place", "Name", "Club", "First Try", "Second Try");
+        // Назначить начальное место для всех прыгунов
+        for (int i = 0; i < orderedJumpers.Count; i++)
+        {
+            orderedJumpers[i].Place = i + 1;
+        }
 
-        int place = 1;
+
+        Console.WriteLine("{0,-20} {1,-20} {2,-20} {3,-20} {4,-20}", "Место", "Имя", "Клуб", "Первая попытка", "Вторая попытка");
+
+
         foreach (var jumper in orderedJumpers)
         {
-            Console.WriteLine("{0,-20} {1,-20} {2,-20} {3,-20} {4,-20}", place++, jumper.Name, jumper.Club, jumper.FirstTry, jumper.SecondTry);
+            jumper.DisplayInfo();
         }
+
     }
-}
+}   
