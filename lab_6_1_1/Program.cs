@@ -1,23 +1,24 @@
-﻿struct Participant
-{
-private string _surname;
-private string _community;
-private int _result1;
-private int _result2;
+﻿using System.Runtime.Serialization.Formatters;
 
-public int Result2 => _result2; // read-only property
-public int Result1 => _result1; // read-only property
-public Participant(string surname, string community, int result1, int result2)
+struct Participant
 {
-    _surname = surname;
-    _community = community;
-    _result1 = result1;
-    _result2 = result2;
-}
-public void Print()
-{
-    Console.WriteLine("{0,-7} | {1,-8} | {2,-16} | {3,-2} ", _surname, _community, _result1, _result2);
-}
+    private string _surname;
+    private string _community;
+    private int _result1;
+    private int _result2;
+    public int _finalresult { get; private set; }
+    public Participant(string surname, string community, int result1, int result2)
+    {
+        _surname = surname;
+        _community = community;
+        _result1 = result1;
+        _result2 = result2;
+        _finalresult = result1 + result2;
+    }
+    public void Print()
+    {
+        Console.WriteLine("{0,-7} | {1,-8} | {2,-16} | {3,-2} ", _surname, _community, _result1, _result2);
+    }
 }
 internal class Program
 {
@@ -44,21 +45,25 @@ internal class Program
 
 
     }
-    static void Sort(Participant[] Participants)
+    static void Sort(Participant[] participants)
     {
-        for (int i = 1; i < Participants.Length; i++)
+        int d = participants.Length / 2;
+        while (d >=1)
         {
-            for (int j = 1; j < Participants.Length; j++)
+            for ( int i = d; i < participants.Length; i++)
             {
-                int res1 = (Participants[j].Result1 + Participants[j].Result2);
-                int res2 = (Participants[j - 1].Result1 + Participants[j - 1].Result2);
-                if (res1 < res2)
+                int j = i;
+                int x = participants[i]._finalresult;
+                while (j >= d && participants[j - 1]._finalresult > x)
                 {
-                    Participant temp = Participants[j];
-                    Participants[j] = Participants[j - 1];
-                    Participants[j - 1] = temp;
+                    Participant temp = participants[j];
+                    participants[j] = participants[j - 1];
+                    participants[j - 1] = temp;
+                    j -= d;
                 }
+
             }
+            d /= 2;
         }
     }
 }
