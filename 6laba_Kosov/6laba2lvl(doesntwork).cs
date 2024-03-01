@@ -1,46 +1,72 @@
-﻿
-
-Код не компилируется. Ошибка в строке 29, пишет о перегрузке. С двумя переменными в массиве все работает, с тремя - нет.
-
-
-/*
-
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public class Player
+class GroupResult
 {
-    public string Name { get; set; }
-    public int PenaltyMins { get; set; }
+    public int SumOfGradePoints { get; private set; }
+
+    public string GroupName { get; private set; }
+
+    // Конструктор класса GroupResult с двумя аргументами
+    public GroupResult(string groupName, int sumOfGradePoints)
+    {
+        GroupName = groupName;
+        SumOfGradePoints = sumOfGradePoints;
+    }
 }
 
-public class Program
+class SessionResults
 {
-    public static void Main()
+
+    public List<GroupResult> Results { get; private set; }
+
+
+    public SessionResults()
     {
-        List<Player> players = new List<Player>();
-        // Создаем объект Random для генерации случайных чисел
-        Random rand = new Random();
+        Results = new List<GroupResult>();
+    }
+
+    // Метод для добавления результатов группы
+    public void AddGroupResults(GroupResult result)
+    {
+        Results.Add(result);
+    }
+
+    // Метод для расчета среднего балла группы
+    public double GetAverageForGroup(GroupResult gr)
+    {
+        return (double)gr.SumOfGradePoints / 5;
+    }
+
+    // Метод для печати результатов сессии
+    public void PrintResults()
+    {
+        Console.WriteLine("{0,-15}{1,-10}", "Название группы", "Средний балл");
 
 
-        for (int i = 1; i <= 30; i++)
+        foreach (var gr in Results.OrderByDescending(g => GetAverageForGroup(g)))
         {
-
-            players.Add(new Player { Name = $"Player{i}", PenaltyMins = rand.Next(2, 5, 10) });
+            Console.WriteLine("{0,-15}{1,-10:F2}", gr.GroupName, GetAverageForGroup(gr));
         }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+
+        SessionResults sessionResults = new SessionResults();
+
+        // Добавляем группы в объект sessionResults
+        sessionResults.AddGroupResults(new GroupResult("Группа 1", 867));
+        sessionResults.AddGroupResults(new GroupResult("Группа 2", 909));
+        sessionResults.AddGroupResults(new GroupResult("Группа 3", 812));
 
 
-        players.RemoveAll(player => player.PenaltyMins == 10);
+        sessionResults.PrintResults();
 
-
-        players = players.OrderBy(player => player.PenaltyMins).ToList();
-
-
-        foreach (var player in players)
-        {
-            Console.WriteLine($"Name: {player.Name}, Penalty Mins: {player.PenaltyMins}");
-        }
+        Console.ReadLine();
     }
 }
