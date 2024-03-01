@@ -54,13 +54,17 @@ internal class Program
             {
                 int j = i;
                 int x = participants[i]._finalresult;
-                while (j >= d && participants[j - 1]._finalresult > x)
+                while (j >= d && participants[j - d]._finalresult > x)
                 {
+                    participants[j].Print();
+                    participants[j-d].Print();
                     Participant temp = participants[j];
-                    participants[j] = participants[j - 1];
-                    participants[j - 1] = temp;
+                    participants[j] = participants[j - d];
+                    participants[j - d] = temp;
                     j -= d;
+              
                 }
+               
 
             }
             d /= 2;
