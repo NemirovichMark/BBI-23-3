@@ -1,0 +1,69 @@
+namespace lab6_lev1_3
+{
+    
+    struct Answers
+    {
+        private string surname1;
+        private int number1;
+        public static int Total { get; private set; }
+
+
+        public string Surname => surname1;
+        public int Number => number1;
+
+        public Answers(string surname, int number)
+        {
+            surname1 = surname;
+            number1 = number;
+            Total += number1;
+        }
+
+        public void Print()
+        {
+            double n = number1;
+
+            Console.WriteLine("Фамилия {0}   \t {1} голосов \t доля {2}%", surname1, number1, (n / Total) *100);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Answers[] an = new Answers[8];
+            an[0] = new Answers("Нагиев", 8);
+            an[1] = new Answers("Ургант", 4);
+            an[2] = new Answers("Малышева", 2);
+            an[3] = new Answers("Пелевин", 10);
+            an[4] = new Answers("Малахов", 7);
+            an[5] = new Answers("Янковский", 5);
+            an[6] = new Answers("Богомолов", 3);
+            an[7] = new Answers("Пересильд", 1);
+            double total = 0;
+                     
+            for (int i = 0; i < an.Length; i++)
+            {
+                total += an[i].Number;
+            }
+
+            
+            for (int i = 1; i < an.Length; i++)
+            {
+                Answers temp = an[i];
+                int j;
+                for (j = i; j > 0 && temp.Number.CompareTo(an[j - 1].Number) > 0; j--)
+                { 
+                an[j] = an[j - 1];
+                }
+                an[j] = temp;
+            }
+            
+            for (int i = 0; i < 5; i++)
+            {
+                
+                an[i].Print();
+            }
+
+            Console.ReadKey();
+        }
+    }
+   }
