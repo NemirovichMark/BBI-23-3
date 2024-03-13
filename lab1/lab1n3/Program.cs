@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 
 namespace lab3n3
 {
     struct Team
     {
-        public int[] results;
+        private int[] results;
 
         public Team(int[] _results)
         {
@@ -14,9 +14,9 @@ namespace lab3n3
         public int CalculatePoints()
         {
             int totalPoints = 0;
-            for(int i = 0; i < results.Length; i++)
+            for (int i = 0; i < results.Length; i++)
             {
-                if(results[i] < 6)
+                if (results[i] < 6)
                 {
                     totalPoints += 5 + 1 - results[i];
                 }
@@ -27,9 +27,9 @@ namespace lab3n3
         public int FirstPlace()
         {
             int k = 0;
-            for(int i = 0; i < results.Length; i++)
+            for (int i = 0; i < results.Length; i++)
             {
-                if(results[i] == 1)
+                if (results[i] == 1)
                 {
                     k = 1;
                 }
@@ -40,11 +40,11 @@ namespace lab3n3
 
     class Program
     {
-        static void Main() 
+        static void Main()
         {
-            int[] team1Results = { 13, 8, 7, 2, 5, 6 }; 
-            int[] team2Results = { 3, 4, 9, 10, 11, 12 }; 
-            int[] team3Results = { 1, 14, 15, 16, 17, 18 }; 
+            int[] team1Results = { 13, 8, 7, 2, 5, 6 };
+            int[] team2Results = { 3, 4, 9, 10, 11, 12 };
+            int[] team3Results = { 1, 14, 15, 16, 17, 18 };
 
             Team team1 = new Team(team1Results);
             Team team2 = new Team(team2Results);
