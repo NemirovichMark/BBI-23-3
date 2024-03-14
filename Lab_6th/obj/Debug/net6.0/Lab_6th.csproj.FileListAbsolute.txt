@@ -1,0 +1,14 @@
+C:\Users\b804\Source\Repos\BBI-23-3\Lab_6th\bin\Debug\net6.0\Lab_6th.exe
+C:\Users\b804\Source\Repos\BBI-23-3\Lab_6th\bin\Debug\net6.0\Lab_6th.deps.json
+C:\Users\b804\Source\Repos\BBI-23-3\Lab_6th\bin\Debug\net6.0\Lab_6th.runtimeconfig.json
+C:\Users\b804\Source\Repos\BBI-23-3\Lab_6th\bin\Debug\net6.0\Lab_6th.dll
+C:\Users\b804\Source\Repos\BBI-23-3\Lab_6th\bin\Debug\net6.0\Lab_6th.pdb
+C:\Users\b804\Source\Repos\BBI-23-3\Lab_6th\obj\Debug\net6.0\Lab_6th.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\b804\Source\Repos\BBI-23-3\Lab_6th\obj\Debug\net6.0\Lab_6th.AssemblyInfoInputs.cache
+C:\Users\b804\Source\Repos\BBI-23-3\Lab_6th\obj\Debug\net6.0\Lab_6th.AssemblyInfo.cs
+C:\Users\b804\Source\Repos\BBI-23-3\Lab_6th\obj\Debug\net6.0\Lab_6th.csproj.CoreCompileInputs.cache
+C:\Users\b804\Source\Repos\BBI-23-3\Lab_6th\obj\Debug\net6.0\Lab_6th.dll
+C:\Users\b804\Source\Repos\BBI-23-3\Lab_6th\obj\Debug\net6.0\refint\Lab_6th.dll
+C:\Users\b804\Source\Repos\BBI-23-3\Lab_6th\obj\Debug\net6.0\Lab_6th.pdb
+C:\Users\b804\Source\Repos\BBI-23-3\Lab_6th\obj\Debug\net6.0\Lab_6th.genruntimeconfig.cache
+C:\Users\b804\Source\Repos\BBI-23-3\Lab_6th\obj\Debug\net6.0\ref\Lab_6th.dll
