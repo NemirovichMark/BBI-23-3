@@ -1,0 +1,14 @@
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\11\11\bin\Debug\net6.0\11.exe
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\11\11\bin\Debug\net6.0\11.deps.json
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\11\11\bin\Debug\net6.0\11.runtimeconfig.json
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\11\11\bin\Debug\net6.0\11.dll
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\11\11\bin\Debug\net6.0\11.pdb
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\11\11\obj\Debug\net6.0\11.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\11\11\obj\Debug\net6.0\11.AssemblyInfoInputs.cache
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\11\11\obj\Debug\net6.0\11.AssemblyInfo.cs
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\11\11\obj\Debug\net6.0\11.csproj.CoreCompileInputs.cache
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\11\11\obj\Debug\net6.0\11.dll
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\11\11\obj\Debug\net6.0\refint\11.dll
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\11\11\obj\Debug\net6.0\11.pdb
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\11\11\obj\Debug\net6.0\11.genruntimeconfig.cache
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\11\11\obj\Debug\net6.0\ref\11.dll
