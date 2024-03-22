@@ -1,0 +1,14 @@
+C:\Users\m2306631\source\repos\CWTask2\CWTask2\bin\Debug\net6.0\CWTask2.exe
+C:\Users\m2306631\source\repos\CWTask2\CWTask2\bin\Debug\net6.0\CWTask2.deps.json
+C:\Users\m2306631\source\repos\CWTask2\CWTask2\bin\Debug\net6.0\CWTask2.runtimeconfig.json
+C:\Users\m2306631\source\repos\CWTask2\CWTask2\bin\Debug\net6.0\CWTask2.dll
+C:\Users\m2306631\source\repos\CWTask2\CWTask2\bin\Debug\net6.0\CWTask2.pdb
+C:\Users\m2306631\source\repos\CWTask2\CWTask2\obj\Debug\net6.0\CWTask2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\m2306631\source\repos\CWTask2\CWTask2\obj\Debug\net6.0\CWTask2.AssemblyInfoInputs.cache
+C:\Users\m2306631\source\repos\CWTask2\CWTask2\obj\Debug\net6.0\CWTask2.AssemblyInfo.cs
+C:\Users\m2306631\source\repos\CWTask2\CWTask2\obj\Debug\net6.0\CWTask2.csproj.CoreCompileInputs.cache
+C:\Users\m2306631\source\repos\CWTask2\CWTask2\obj\Debug\net6.0\CWTask2.dll
+C:\Users\m2306631\source\repos\CWTask2\CWTask2\obj\Debug\net6.0\refint\CWTask2.dll
+C:\Users\m2306631\source\repos\CWTask2\CWTask2\obj\Debug\net6.0\CWTask2.pdb
+C:\Users\m2306631\source\repos\CWTask2\CWTask2\obj\Debug\net6.0\CWTask2.genruntimeconfig.cache
+C:\Users\m2306631\source\repos\CWTask2\CWTask2\obj\Debug\net6.0\ref\CWTask2.dll
