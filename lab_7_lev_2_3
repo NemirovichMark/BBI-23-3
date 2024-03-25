@@ -1,0 +1,102 @@
+{
+
+    public abstract class Discipline
+    {
+        protected string _surname;
+        protected double _res1;
+        protected double _res2;
+        protected double _res3;
+        protected double _maxres;
+        protected string _disciplineName;
+
+        public Discipline(string surname, double res1, double res2, double res3, double maxres, string disciplineName)
+        {
+            _surname = surname;
+            _res1 = res1;
+            _res2 = res2;
+            _res3 = res3;
+            _maxres = maxres;
+            _disciplineName = disciplineName;
+        }
+        public virtual void PrintHeader()
+        {
+            Console.WriteLine("Дисциплина: {0}", _disciplineName);
+        }
+        public virtual void Print()
+        {
+            
+            Console.WriteLine("Фамилия {0}   \t {1} ", _surname, _maxres);
+        }
+        public void BestRes()
+        {
+            _maxres = Math.Max(Math.Max(_res1, _res2), _res3);
+        }
+
+        class LongJump : Discipline
+        {
+
+            public LongJump(string surname, double res1, double res2, double res3, double maxres) : base(surname, res1, res2, res3, maxres, "Прыжки в длину")
+            {
+                BestRes();
+            }
+            public override void Print()
+            {
+                
+                Console.WriteLine("Фамилия {0}   \t {1} ", _surname, _maxres);
+            }
+        }
+        class HighJump : Discipline
+        {
+
+            public HighJump(string surname, double res1, double res2, double res3, double maxres) : base(surname, res1, res2, res3, maxres, "Прыжки в высоту")
+            {
+                BestRes();
+            }
+            public override void Print()
+            {
+                
+                Console.WriteLine("Фамилия {0}   \t {1} ", _surname, _maxres);
+            }
+        }
+
+        internal class Program
+        {
+            static void Main(string[] args)
+            {
+                LongJump[] lo = new LongJump[5];
+                lo[0] = new LongJump("Иванов", 1.2, 1.4, 1.1, 0);
+                lo[1] = new LongJump("Петров", 2.2, 2.1, 2.8, 0);
+                lo[2] = new LongJump("Сидоров", 2.5, 1.9, 2.1, 0);
+                lo[3] = new LongJump("Смирнов", 1.9, 1.8, 2.0, 0);
+                lo[4] = new LongJump("Васечкин", 2.7, 2.9, 1.8, 0);
+
+                HighJump[] high = new HighJump[5];
+                high[0] = new HighJump("Иванов", 2.7, 2.9, 1.8, 0);
+                high[1] = new HighJump("Петров", 2.2, 2.1, 2.9, 0);
+                high[2] = new HighJump("Сидоров", 2.6, 1.9, 2.1, 0);
+                high[3] = new HighJump("Смирнов", 1.9, 1.8, 2.5, 0);
+                high[4] = new HighJump("Васечкин", 1.7, 2.8, 1.8, 0);
+
+                lo[0].PrintHeader();
+                for (int i = 0; i < lo.Length; i++)
+                {
+                    
+                    lo[i].BestRes();
+                    lo[i].Print();
+                }
+                Console.WriteLine("");
+                high[0].PrintHeader();
+                for (int i = 0; i < high.Length; i++)
+                {
+
+                    high[i].BestRes();
+                    high[i].Print();
+                }
+
+
+                Console.ReadKey();
+            }
+        }
+
+    }
+}
