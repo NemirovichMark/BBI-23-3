@@ -1,0 +1,111 @@
+{   
+        public abstract class Answer
+        {
+            protected string _surname;
+            protected int _number;
+        public string Surname => _surname; 
+        public int Number => _number;
+        
+
+        public Answer(string surname, int number)
+                {
+                _surname = surname;
+                _number = number;
+                
+        }
+
+        
+        public virtual void Print()
+            {
+
+            double n = _number;
+            Console.WriteLine("Фамилия {0}   \t {1} голосов", _surname, _number);
+            }
+        }
+    class PersonOfYear : Answer
+    {
+        private static int _totalPersonVotes = 0;
+        public PersonOfYear(string surname, int number) : base(surname, number)
+        {
+            _totalPersonVotes += number;
+        }
+        public override void Print()
+        {
+
+            Console.WriteLine("Фамилия {0}   \t {1} голосов\t доля {2}%", _surname, _number, ((_number / (double)_totalPersonVotes) * 100));
+    }
+    class DiscoveryOfYear : Answer
+    {
+        private static int _totalopen;
+        private readonly int Totalopen;
+            private static int _totalDiscoveryVotes = 0;
+            public DiscoveryOfYear(string surname, int number) : base(surname, number)
+            {
+                _totalDiscoveryVotes += number;
+            }
+            public override void Print()
+        {
+
+                Console.WriteLine("Фамилия {0}\t {1} голосов\t доля {2:F2}%", _surname, _number, ((_number / (double)_totalDiscoveryVotes) * 100));
+            }
+    }
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                PersonOfYear[] per = new PersonOfYear[8];
+                per[0] = new PersonOfYear("Нагиев", 8);
+                per[1] = new PersonOfYear("Ургант", 4);
+                per[2] = new PersonOfYear("Малышева", 2);
+                per[3] = new PersonOfYear("Пелевин", 10);
+                per[4] = new PersonOfYear("Малахов", 7);
+                per[5] = new PersonOfYear("Янковский", 5);
+                per[6] = new PersonOfYear("Богомолов", 3);
+                per[7] = new PersonOfYear("Пересильд", 1);
+
+                DiscoveryOfYear[] dis = new DiscoveryOfYear[6];
+                dis[0] = new DiscoveryOfYear("Лекарство от бессоницы", 5);
+                dis[1] = new DiscoveryOfYear("Солнечная батарея     ", 7);
+                dis[2] = new DiscoveryOfYear("Электрокар            ", 2);
+                dis[3] = new DiscoveryOfYear("VR очки               ", 10);
+                dis[4] = new DiscoveryOfYear("3D принтер            ", 5);
+                dis[5] = new DiscoveryOfYear("Метавселенные         ", 3);
+
+
+                Sort(per);
+                Sort(dis);
+
+                Console.WriteLine("PersonOfYear");
+                for (int i = 0; i < 5; i++)
+                {
+                    per[i].Print();
+                }
+
+                Console.WriteLine("");
+                Console.WriteLine("DiscoveryOfYear");
+                for (int i = 0; i < 5; i++)
+                {
+                    dis[i].Print();
+                }
+                Console.ReadKey();
+            }
+            static void Sort(Answer[] an)
+            {
+                for (int i = 1; i < an.Length; i++)
+                {
+                    Answer temp = an[i];
+                    int j;
+                    for (j = i; j > 0 && temp.Number.CompareTo(an[j - 1].Number) > 0; j--)
+                    {
+                        an[j] = an[j - 1];
+                    }
+                    an[j] = temp;
+                }
+            }
+
+
+        }
+            
+        }
+    
+}
