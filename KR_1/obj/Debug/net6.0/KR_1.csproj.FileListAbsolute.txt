@@ -1,0 +1,14 @@
+C:\Users\m2306631\Source\Repos\BBI-23-3\KR_1\bin\Debug\net6.0\KR_1.exe
+C:\Users\m2306631\Source\Repos\BBI-23-3\KR_1\bin\Debug\net6.0\KR_1.deps.json
+C:\Users\m2306631\Source\Repos\BBI-23-3\KR_1\bin\Debug\net6.0\KR_1.runtimeconfig.json
+C:\Users\m2306631\Source\Repos\BBI-23-3\KR_1\bin\Debug\net6.0\KR_1.dll
+C:\Users\m2306631\Source\Repos\BBI-23-3\KR_1\bin\Debug\net6.0\KR_1.pdb
+C:\Users\m2306631\Source\Repos\BBI-23-3\KR_1\obj\Debug\net6.0\KR_1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\m2306631\Source\Repos\BBI-23-3\KR_1\obj\Debug\net6.0\KR_1.AssemblyInfoInputs.cache
+C:\Users\m2306631\Source\Repos\BBI-23-3\KR_1\obj\Debug\net6.0\KR_1.AssemblyInfo.cs
+C:\Users\m2306631\Source\Repos\BBI-23-3\KR_1\obj\Debug\net6.0\KR_1.csproj.CoreCompileInputs.cache
+C:\Users\m2306631\Source\Repos\BBI-23-3\KR_1\obj\Debug\net6.0\KR_1.dll
+C:\Users\m2306631\Source\Repos\BBI-23-3\KR_1\obj\Debug\net6.0\refint\KR_1.dll
+C:\Users\m2306631\Source\Repos\BBI-23-3\KR_1\obj\Debug\net6.0\KR_1.pdb
+C:\Users\m2306631\Source\Repos\BBI-23-3\KR_1\obj\Debug\net6.0\KR_1.genruntimeconfig.cache
+C:\Users\m2306631\Source\Repos\BBI-23-3\KR_1\obj\Debug\net6.0\ref\KR_1.dll

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34018.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CWTask1", "CWTask1\CWTask1.csproj", "{02A143B8-0359-4F5B-B276-1B582EDF3C85}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02A143B8-0359-4F5B-B276-1B582EDF3C85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02A143B8-0359-4F5B-B276-1B582EDF3C85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02A143B8-0359-4F5B-B276-1B582EDF3C85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02A143B8-0359-4F5B-B276-1B582EDF3C85}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7538C93F-6D9F-45B9-B3B4-6D89C0AC8D23}
+	EndGlobalSection
+EndGlobal
