@@ -1,0 +1,119 @@
+{
+    public class Team
+    {
+
+        protected string _name;
+        protected int[] _places;
+        protected int _points;
+        public string Name { get => _name; set => _name = value; }
+        public int[] Places { get => _places; set => _places = value; }
+        public int Points { get => _points; set => _points = value; }
+        public Team(string name, int[] places, int points)
+        {
+            _name = name;
+            _places = places;
+            _points = points;
+        }
+
+        public class Women : Team
+        {
+            public Women(string name, int[] places, int points) : base(name, places, points)
+            {
+
+            }
+        }
+        public class Men : Team
+        {
+            public Men(string name, int[] places, int points) : base(name, places, points)
+            {
+
+            }
+        }
+
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Women wteam1 = new Women("A", new int[] { 1, 2, 3, 9, 17, 4 }, 0);
+            Women wteam2 = new Women("B", new int[] { 7, 6, 10, 14, 18, 12 }, 0);
+            Women wteam3 = new Women("C", new int[] { 5, 7, 11, 15, 16, 13 }, 0);
+
+
+            Men mteam1 = new Men("D", new int[] { 11, 8, 9, 13, 17, 4 }, 0);
+            Men mteam2 = new Men("E", new int[] { 1, 2, 3, 4, 5, 6 }, 0);
+            Men mteam3 = new Men("F", new int[] { 3, 2, 1, 15, 16, 5 }, 0);
+
+
+            wteam1.Points = Calculate(wteam1);
+            wteam2.Points = Calculate(wteam2);
+            wteam3.Points = Calculate(wteam3);
+
+            mteam1.Points = Calculate(mteam1);
+            mteam2.Points = Calculate(mteam2);
+            mteam3.Points = Calculate(mteam3);
+
+            Team manwin = Winner(mteam1, mteam2, mteam3);
+            Team womanwin = Winner(wteam1, wteam2, wteam3);
+            if (manwin.Points > womanwin.Points)
+            {
+                Console.WriteLine("Победила команда {0} набрав {1} очков", manwin.Name, manwin.Points);
+            }
+            else
+            {
+                Console.WriteLine("Победила команда {0} набрав {1} очков", womanwin.Name, womanwin.Points);
+            }
+            Console.ReadKey();
+        }
+
+        static int Calculate(Team team)
+        {
+            int totalPoints = 0;
+            for (int i = 0; i < team.Places.Length; i++)
+            {
+
+                if (team.Places[i] <= 5)
+                {
+                    totalPoints += (6 - team.Places[i]);
+                }
+
+                else
+                {
+                    totalPoints += 0;
+                }
+            }
+            return totalPoints;
+
+        }
+        static Team Winner(Team team1, Team team2, Team team3)
+        {
+            if (team1.Points > team2.Points && team1.Points > team3.Points)
+            {
+                return team1;
+            }
+            else if (team2.Points > team1.Points && team2.Points > team3.Points)
+            {
+                return team2;
+            }
+            else if (team3.Points > team1.Points && team3.Points > team2.Points)
+            {
+                return team3;
+            }
+            else
+            {
+                if (team1.Places[0] == 1)
+                {
+                    return team1;
+                }
+                else if (team2.Places[0] == 1)
+                {
+                    return team2;
+                }
+                else
+                {
+                    return team3;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,76 @@
+   internal class Program
+    {
+        struct Goods
+        {
+            private string _name;
+            private string _description;
+            private int _price;
+            private static int _article;
+            private readonly int Article;
+
+            public string Name => _name;
+            public string Description => _description;
+            public int Price => _price;
+
+            public Goods(string name, int price)
+            {
+                _name = name;
+                _price = price;
+                _article++;
+                Article = _article;
+                _description = "Для товара " + name + " описание не задано";
+            }
+            public void Des()
+            {
+
+                _description = "Новое описание товара новое описание товара новое описание товара";
+                if (_description.Length < 20 | _description.Length > 200)
+                {
+                    _description = "Для товара описание не задано";
+                }
+                
+            }
+
+            public void Print()
+            {
+
+                Console.WriteLine("{0}           {1}             {2}              {3}", _name, Article, _price, _description);
+            }
+
+            static void Main(string[] args)
+            {
+                Goods[] goods = new Goods[5];
+                goods[0] = new Goods("Макароны", 50);
+                goods[1] = new Goods("Масло", 25);
+                goods[2] = new Goods("Вода", 20);
+                goods[3] = new Goods("Гречка", 40);
+                goods[4] = new Goods("Мыло", 18);
+
+
+               goods[0].Des();
+                goods[1].Des();
+                goods[4].Des();
+
+
+                for (int i = 1; i < goods.Length; i++)
+                {
+                    Goods temp = goods[i];
+                    int j;
+                    for (j = i; j > 0 && temp.Price.CompareTo(goods[j - 1].Price) < 0; j--)
+                    {
+                        goods[j] = goods[j - 1];
+                    }
+                    goods[j] = temp;
+                }
+                Console.WriteLine("Название \t  Артикул \t  Цена \t Описание");
+                for (int i = 0; i < goods.Length; i++)
+                {
+
+                    goods[i].Print();
+                }
+
+                Console.ReadKey();
+            }
+        }
+    }
+}

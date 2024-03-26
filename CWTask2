@@ -1,0 +1,157 @@
+public abstract class Goods
+       {
+       protected string _name;
+       protected string _description;
+       protected double _price;
+       protected static int _article;
+       protected readonly int Article;
+
+       public string Name => _name;
+       public string Description => _description;
+       public double Price => _price;
+
+       public Goods(string name, double price)
+       {
+           _name = name;
+           _price = price;
+           _article++;
+           Article = _article;
+           _description = "Для товара " + name + " описание не задано";
+       }
+
+       public void Des()
+       {
+
+           _description = "Новое описание товара новое описание товара новое описание товара";
+           if (_description.Length < 20 | _description.Length > 200)
+           {
+               _description = "Для товара описание не задано";
+           }
+
+       }
+       public abstract double CalculatePrice();
+           public virtual void Print()
+           {
+               Console.WriteLine("{0} \t {1} \t {2} \t {3}", _name, Article, _price, _description);
+           }
+       }
+       public class Beverage : Goods
+       {
+           private int _sugar;
+
+           public Beverage(string name, double price, int sugar) : base(name, price)
+
+           {
+               _sugar = sugar;
+           }
+           public override double CalculatePrice()
+           {
+           if (_sugar > 5)
+           {
+               return _price * 1.1;
+           }
+           else { return _price; }
+           }
+
+           public override void Print()
+           {
+           Console.WriteLine("{0} \t {1} \t {2} \t {3}", _name, Article, CalculatePrice(), _description);
+       }
+       }
+       public class Food : Goods
+       {
+           private double _expire;
+
+           public Food(string name, double price, double expire) : base(name, price)
+           {
+               _expire = expire;
+           }
+           public override double CalculatePrice()
+           {
+           if (_expire < 1.0)
+           {
+               return _price * 1.05;
+           }
+           else if (_expire > 12.0)
+           {
+               return _price * 0.95;
+           }
+           else { return _price; }
+       }
+   
+           public override void Print()
+           {
+           Console.WriteLine("{0} \t {1} \t {2} \t {3}", _name, Article, CalculatePrice(), _description);
+       }
+       }
+       
+       class Program
+       {
+           static void Main()
+           {
+           Beverage[] bev = new Beverage[5];
+               bev[0] = new Beverage("Добрый кола", 10.0, 15);
+               bev[1] = new Beverage("Дюшес      ", 20.0, 12);
+               bev[2] = new Beverage("Колокольчик", 35.0, 2);
+               bev[3] = new Beverage("Квас       ", 30.0, 3);
+               bev[4] = new Beverage("Буратино   ", 15.0, 30);
+
+           Food[] food = new Food[5];
+               food[0] = new Food("Курица  ", 150, 0.9);
+               food[1] = new Food("Яблоко  ", 50, 6);
+               food[2] = new Food("Сгущенка", 30, 11);
+               food[3] = new Food("Конфеты ", 150, 12);
+               food[4] = new Food("Батон   ", 19, 0.3);
+
+              
+
+               Sort(bev);
+               Sort(food);
+
+           bev[0].Des();
+           bev[3].Des();
+           food[1].Des();
+           food[2].Des();
+
+
+           Console.WriteLine("Название      Артикул \t Цена \t   Описание");
+           
+           Console.WriteLine("Beverage");
+               for (int i = 0; i < bev.Length; i++)
+               {
+               bev[i].Print();
+               }
+
+               Console.WriteLine("");
+               Console.WriteLine("Food");
+               for (int i = 0; i < food.Length; i++)
+               {
+               food[i].Print();
+               }
+               
+
+               Console.ReadKey();
+           }
+
+           public static void Sort(Goods[] goods)
+           {
+               for (int i = 0; i < goods.Length; i++)
+               {
+                   if (goods[i] == null) continue;
+
+                   for (int j = i + 1; j < goods.Length; j++)
+                   {
+                       if (goods[j] == null) continue;
+
+                       if (goods[i].CalculatePrice() > goods[j].CalculatePrice())
+                       {
+                           Goods temp = goods[i];
+                           goods[i] = goods[j];
+                           goods[j] = temp;
+                       }
+                   }
+               }
+           }
+           
+       }
+   }
