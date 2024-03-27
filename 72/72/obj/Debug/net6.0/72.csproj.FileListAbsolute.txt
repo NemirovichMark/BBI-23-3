@@ -1,0 +1,14 @@
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\лаба 7\72\72\bin\Debug\net6.0\72.exe
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\лаба 7\72\72\bin\Debug\net6.0\72.deps.json
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\лаба 7\72\72\bin\Debug\net6.0\72.runtimeconfig.json
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\лаба 7\72\72\bin\Debug\net6.0\72.dll
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\лаба 7\72\72\bin\Debug\net6.0\72.pdb
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\лаба 7\72\72\obj\Debug\net6.0\72.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\лаба 7\72\72\obj\Debug\net6.0\72.AssemblyInfoInputs.cache
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\лаба 7\72\72\obj\Debug\net6.0\72.AssemblyInfo.cs
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\лаба 7\72\72\obj\Debug\net6.0\72.csproj.CoreCompileInputs.cache
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\лаба 7\72\72\obj\Debug\net6.0\72.dll
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\лаба 7\72\72\obj\Debug\net6.0\refint\72.dll
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\лаба 7\72\72\obj\Debug\net6.0\72.pdb
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\лаба 7\72\72\obj\Debug\net6.0\72.genruntimeconfig.cache
+C:\Users\yulya\OneDrive\Рабочий стол\учеба\прога\лаба 7\72\72\obj\Debug\net6.0\ref\72.dll
